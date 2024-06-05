@@ -9,9 +9,9 @@ def create_inventory(items):
         inventario[item] = cantidad
     return inventario
 
-
 def add_items(inventory, items):
-for item in items:
+
+    for item in items:
         if item in inventory.keys():
             cantidad = inventory[item] + 1
         else:
@@ -20,18 +20,17 @@ for item in items:
         inventory[item] = cantidad
     return inventory
 
-
 def decrement_items(inventory, items):
 
     for item in items:
-        if item in inventory.keys():
-            cantidad = inventory[item] - 1
-        else:
-            cantidad = 1
+        if inventory[item] > 0:
+            if item in inventory.keys():
+                cantidad = inventory[item] - 1
+            else:
+                cantidad = 1
 
-        inventory[item] = cantidad
+            inventory[item] = cantidad
     return inventory
-
 
 def remove_item(inventory, item):
 
@@ -40,12 +39,10 @@ def remove_item(inventory, item):
 
     return inventory
 
-
 def list_inventory(inventory):
     nueva_lista = list() 
     for item in inventory.items():
         elemento, cantidad = item
-        
         if cantidad > 0: 
             nueva_lista.append(item) 
 
